@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 import styles from "./styles.module.scss";
 
 const Button = props => {
-  const { children, className, ...rest } = props;
+  const { next, prev, children, className, ...rest } = props;
+
   return (
     <button
       className={
@@ -12,6 +13,8 @@ const Button = props => {
       }
       {...rest}
     >
+      {prev ? "Previous" : ""}
+      {next ? "Next" : ""}
       {children}
     </button>
   );
@@ -19,7 +22,12 @@ const Button = props => {
 
 Button.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.array.isRequired
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
+  next: PropTypes.bool,
+  prev: PropTypes.bool
 };
 
 export default Button;

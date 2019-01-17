@@ -5,7 +5,6 @@ import Select from "react-select";
 import {
   Thumbnail,
   Well,
-  PaginationButton,
   Button,
   TabNav,
   Dropdown,
@@ -60,8 +59,15 @@ export default class App extends Component {
         </ButtonGroup>
 
         <div className="buttonContainer">
-          <PaginationButton prev />
-          <PaginationButton next />
+          <Button prev />
+          <Button next />
+          <Button>
+            W/ Icon
+            <img
+              src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-128.png"
+              alt="icon"
+            />
+          </Button>
           <Button onClick={this.notify}>Click for toast!</Button>
         </div>
         <Alert primary="true">Primary alert</Alert>

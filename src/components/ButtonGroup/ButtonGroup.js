@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import styles from "./styles.module.scss";
 
@@ -16,6 +17,11 @@ const ButtonGroup = props => {
       {children}
     </div>
   );
+};
+
+ButtonGroup.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.array.isRequired
 };
 
 export default ButtonGroup;
