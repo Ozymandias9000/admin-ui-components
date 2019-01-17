@@ -1,68 +1,162 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# admin-ui-components
 
-## Available Scripts
+>
 
-In the project directory, you can run:
+[![NPM](https://img.shields.io/npm/v/fs-admin-ui-components.svg)](https://www.npmjs.com/package/fs-admin-ui-components) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Development](#development)
+- [Components](#components)
+- [License](#license)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Development
 
-### `npm test`
+From [create-react-package](https://github.com/transitive-bullshit/create-react-library#readme) docs:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> Local development is broken into two parts (ideally using two tabs).
+> First, run rollup to watch your src/ module and automatically recompile it into dist/ whenever you make changes.
 
-### `npm run build`
+```jsx
+npm start # runs rollup with watch flag
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> The second part will be running the example/ create-react-app that's linked to the local version of your module.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```jsx
+# (in another tab)
+cd example
+npm start # runs create-react-app dev server
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> Now, anytime you make a change to your library in src/ or to the example app's example/src, create-react-app will live-reload your local dev server so you can iterate on your component in real-time.
 
-### `npm run eject`
+## Components
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [Headings](#headings)
+- [Lists](#lists)
+- [Navbars](#navbars)
+- [Buttons](#buttons)
+- [Thumbnails](#thumbnails)
+- [Wells](#wells)
+- [Forms](#forms)
+- [Pagination](#pagination)
+- [Alerts](#alerts)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Headings
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```jsx
+<h1>h1 Heading</h1>
+<h2>h2 Heading</h2>
+<h3>h3 Heading</h3>
+<h4>h4 Heading</h4>
+<h5>h5 Heading</h5>
+<h6>h6 Heading</h6>
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Lists
 
-## Learn More
+### Navbars
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### TabNav
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```jsx
+import { TabNav } from "fs-admin-ui-components";
 
-### Code Splitting
+<TabNav>
+  <div label="Home" />
+  <div label="Profile" />
+  <div label="Messages" />
+</TabNav>;
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Buttons
 
-### Analyzing the Bundle Size
+#### Generic Button
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```jsx
+import { Button } from "fs-admin-ui-components";
 
-### Making a Progressive Web App
+<Button onClick={() => alert("Hi!")}>Click me!</Button>;
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+#### Dropdowns
 
-### Advanced Configuration
+```jsx
+import { Dropdown } from "fs-admin-ui-components";
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+<Dropdown>
+  <div option="blue">Blue</div>
+  <div option="red">Red</div>
+  <div option="green">Green</div>
+</Dropdown>;
+```
 
-### Deployment
+#### Using [React-Select](https://github.com/JedWatson/react-select) Dropdown
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```jsx
+import { Select } from "react-select
 
-### `npm run build` fails to minify
+<Select
+  options={[
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" }
+  ]}
+/>
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Thumbnails
+
+```jsx
+import { Thumbnail } from "fs-admin-ui-components";
+
+<Thumbnail
+  image="https://source.unsplash.com/random/300x300?abstract"
+  alt="Random abstract art"
+/>;
+```
+
+### Wells
+
+```jsx
+import { Well } from "fs-admin-ui-components";
+
+<Well>
+  <p>Hello there!</p>
+</Well>;
+```
+
+```jsx
+import { Card } from "fs-admin-ui-components";
+
+<Card>
+  <p>Let us go now, you and I...</p>
+</Card>;
+```
+
+### Forms
+
+### Pagination
+
+#### Using [React-JS-Pagination](https://www.npmjs.com/package/react-js-pagination)
+
+```jsx
+import { PageNav } from "fs-admin-ui-components";
+
+<PageNav itemsCountPerPage={10} totalItemsCount={450} pageRangeDisplayed={5} />;
+```
+
+### Alerts
+
+```jsx
+<Alert primary="true">Primary alert</Alert>
+<Alert secondary="true">Secondary alert</Alert>
+<Alert success="true">Success alert</Alert>
+<Alert warning="true">Warning alert</Alert>
+<Alert danger="true">Danger alert</Alert>
+```
+
+## License
+
+MIT © [Ozymandias9000](https://github.com/Ozymandias9000)
