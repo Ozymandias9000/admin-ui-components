@@ -1,0 +1,43 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:root {
+  $default-font: sans-serif;
+  $default-color: #333;
+
+  font-family: $default-font;
+  color: $default-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  color: inherit;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+input {
+  background-image: none !important;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  box-shadow: none;
+}
+
+a {
+  text-decoration: none;
+  color: #337ab7;
+}

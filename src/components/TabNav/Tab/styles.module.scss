@@ -1,0 +1,38 @@
+.listItem {
+  cursor: pointer;
+  margin: 0 2px -1px 0;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  &:hover {
+    color: #23527c;
+    background-color: #eee;
+    border-color: #eee #eee #ddd;
+  }
+}
+
+.listItemActive {
+  cursor: pointer;
+  margin: 0 2px -1px 0;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
+.listItemActive,
+.listItemActive:hover {
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: white;
+  color: inherit;
+  background: inherit;
+}
